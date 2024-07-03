@@ -5,6 +5,7 @@
  */
 package Forms;
 
+import Global.dbConnection;
 import java.awt.Color;
 
 /**
@@ -13,11 +14,14 @@ import java.awt.Color;
  */
 public class ULogin extends javax.swing.JFrame {
 
+    dbConnection db;
+
     /**
      * Creates new form FLogin
      */
     public ULogin() {
         initComponents();
+        db = new dbConnection();
     }
 
     /**
@@ -252,7 +256,7 @@ public class ULogin extends javax.swing.JFrame {
 
     private void btnLoginLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginLabelMouseClicked
         // TODO add your handling code here:
-        
+        db.loginCheck(txtUser.getText(), txtPassword.getText());
     }//GEN-LAST:event_btnLoginLabelMouseClicked
 
     private void btnLoginLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginLabelMousePressed
