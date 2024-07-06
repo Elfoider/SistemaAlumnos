@@ -20,8 +20,8 @@ public class ULogin extends javax.swing.JFrame {
      * Creates new form FLogin
      */
     public ULogin() {
-        initComponents();
         db = new dbConnection();
+        initComponents();
     }
 
     /**

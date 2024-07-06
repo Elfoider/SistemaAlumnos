@@ -5,7 +5,12 @@
  */
 package Global;
 
-import java.sql.*;
+import Forms.UPrincipal;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 /**
@@ -20,23 +25,17 @@ public class dbConnection {
         try {
             Class.forName("org.sqlite.JDBC");
             String url = "jdbc:sqlite:DB/SistemaAlumnos.db";
-            DriverManager.getConnection(url);
+            connect = DriverManager.getConnection(url);
             if (connect != null) {
-                System.out.println("Conexion exitosa");
+                System.out.print("Conexion exitosa");
             }
         } catch (SQLException ex) {
-            System.err.println("No se ha podido conectar a la base de datos\n"
-                    + ex.getMessage());
-
-            JOptionPane.showMessageDialog(null, "No se ha podido conectar a la base de datos\n"
-                    + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            System.err.println("No se ha podido conectar a la base de datos\n" + ex.getMessage());
+            JOptionPane.showMessageDialog(null, "No se ha podido conectar a la base de datos\n" + ex.getMessage());
         } catch (ClassNotFoundException e) {
-
-            System.err.println("El Driver no está correctamente agregado\n"
+            System.err.println("El JAR no está correctamente agregado\n"
                     + e.getMessage());
-            JOptionPane.showMessageDialog(null, "El Driver no está correctamente agregado\n"
-                    + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-
+            JOptionPane.showMessageDialog(null, "No se ha agregado la libreria correspondiente");
             System.exit(0);
         }
     }
@@ -44,20 +43,20 @@ public class dbConnection {
     public void loginCheck(String username, String password) {
         try {
             Statement stmt = connect.createStatement();
-            Boolean loginUser = Boolean.FALSE;
+            int loginUser = 0;
             ResultSet rs = stmt.executeQuery("SELECT * FROM users");
             while (rs.next()) {
-                int id = rs.getInt("id");
                 String dbusername = rs.getString("username"), dbpassword = rs.getString("password");
                 if (username.equals(dbusername) && password.equals(dbpassword)) {
                     System.out.println("logueado");
-                    loginUser = Boolean.TRUE;
+                    loginUser = 1;
                     break;
                 }
             }
-            if (loginUser) {
+            if (loginUser == 1) {
                 System.out.println("Login");
                 JOptionPane.showMessageDialog(null, "Usuario Logueado");
+                
             } else {
                 JOptionPane.showMessageDialog(null, "Usuario o Contraseña incorrectos");
             }
