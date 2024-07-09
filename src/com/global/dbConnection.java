@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Global;
+package com.global;
 
-import Forms.UPrincipal;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -40,10 +39,10 @@ public class dbConnection {
         }
     }
 
-    public void loginCheck(String username, String password) {
+    public int loginCheck(String username, String password) {
+        int loginUser = 0;
         try {
             Statement stmt = connect.createStatement();
-            int loginUser = 0;
             ResultSet rs = stmt.executeQuery("SELECT * FROM users");
             while (rs.next()) {
                 String dbusername = rs.getString("username"), dbpassword = rs.getString("password");
@@ -53,15 +52,10 @@ public class dbConnection {
                     break;
                 }
             }
-            if (loginUser == 1) {
-                System.out.println("Login");
-                JOptionPane.showMessageDialog(null, "Usuario Logueado");
-                
-            } else {
-                JOptionPane.showMessageDialog(null, "Usuario o Contraseña incorrectos");
-            }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            loginUser = 0;
         }
+        return loginUser;
     }
 }
