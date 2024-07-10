@@ -10,6 +10,8 @@ import Forms.UMain;
 import Forms.USplash;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 
 /**
  *
@@ -54,9 +56,10 @@ public class UDM {
                 mTimer.stop();
             });
             mTimer.start();
+        } else if (loginResult == 2) {
+            JOptionPane.showMessageDialog(null, "Error correo electronico no valido");
         } else {
-            JOptionPane.showMessageDialog(null, "No se pudo loguear");
-
+            JOptionPane.showMessageDialog(null, "Combinacion de usuario y contraseña no valido");
         }
     }
 }

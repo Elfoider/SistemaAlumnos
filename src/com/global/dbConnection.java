@@ -10,6 +10,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
 /**
@@ -41,21 +43,33 @@ public class dbConnection {
 
     public int loginCheck(String username, String password) {
         int loginUser = 0;
-        try {
-            Statement stmt = connect.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM users");
-            while (rs.next()) {
-                String dbusername = rs.getString("username"), dbpassword = rs.getString("password");
-                if (username.equals(dbusername) && password.equals(dbpassword)) {
-                    System.out.println("logueado");
-                    loginUser = 1;
-                    break;
+        boolean isValid = isValidEmail(username);
+        if (isValid) {
+            try {
+                Statement stmt = connect.createStatement();
+                ResultSet rs = stmt.executeQuery("SELECT * FROM users");
+                while (rs.next()) {
+                    String dbusername = rs.getString("username"), dbpassword = rs.getString("password");
+                    if (username.equals(dbusername) && password.equals(dbpassword)) {
+                        System.out.println("logueado");
+                        loginUser = 1;
+                        break;
+                    }
                 }
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                loginUser = 0;
             }
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-            loginUser = 0;
+        } else {
+            loginUser = 2;
         }
         return loginUser;
+    }
+
+    public static boolean isValidEmail(String email) {
+        String regex = "^[\\w\\.-]+@([\\w\\.-]+\\.)+[\\w\\.-]{2,}$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
     }
 }
