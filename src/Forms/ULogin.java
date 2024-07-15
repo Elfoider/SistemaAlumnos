@@ -5,7 +5,8 @@
  */
 package Forms;
 
-import Global.dbConnection;
+import com.global.UDM;
+import com.global.dbConnection;
 import java.awt.Color;
 
 /**
@@ -15,13 +16,15 @@ import java.awt.Color;
 public class ULogin extends javax.swing.JFrame {
 
     dbConnection db;
+    UDM dm;
 
     /**
      * Creates new form FLogin
      */
     public ULogin() {
-        initComponents();
         db = new dbConnection();
+        dm = new UDM();
+        initComponents();
     }
 
     /**
@@ -48,10 +51,10 @@ public class ULogin extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         btnLogin = new javax.swing.JPanel();
         btnLoginLabel = new javax.swing.JLabel();
-        lblClose = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        lblClose = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Iniciar Sesion");
@@ -64,19 +67,20 @@ public class ULogin extends javax.swing.JFrame {
         jPanel2.setPreferredSize(new java.awt.Dimension(325, 350));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel10.setText("V 1.0.0");
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 306, 50, 30));
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 306, 310, 30));
 
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sources/Edu Smart new Logo.png"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sources/Edu Smart new Logo.png"))); // NOI18N
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, 200, 230));
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sources/ElevenLabs logo pequeño.png"))); // NOI18N
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 200, 30));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sources/ElevenLabs logo pequeño.png"))); // NOI18N
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 200, 30));
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sources/Fondologin V2.png"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sources/Fondologin V2.png"))); // NOI18N
         jLabel5.setText("jLabel5");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 330, 400));
 
@@ -86,7 +90,7 @@ public class ULogin extends javax.swing.JFrame {
 
         txtUser.setBackground(new java.awt.Color(0, 74, 173));
         txtUser.setForeground(new java.awt.Color(255, 255, 255));
-        txtUser.setText("Usuario");
+        txtUser.setText("Correo Electronico");
         txtUser.setBorder(null);
         txtUser.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -116,11 +120,11 @@ public class ULogin extends javax.swing.JFrame {
         jPanel3.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 250, 20));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sources/pass.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sources/pass.png"))); // NOI18N
         jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 30, 30));
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sources/employee.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sources/mail.png"))); // NOI18N
         jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 30, 30));
 
         btnLogin.setBackground(new java.awt.Color(17, 119, 255));
@@ -165,25 +169,6 @@ public class ULogin extends javax.swing.JFrame {
 
         jPanel3.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 240, 240, 40));
 
-        lblClose.setBackground(new java.awt.Color(255, 0, 0));
-        lblClose.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblClose.setForeground(new java.awt.Color(255, 255, 255));
-        lblClose.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblClose.setText("X");
-        lblClose.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        lblClose.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblCloseMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lblCloseMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                lblCloseMouseExited(evt);
-            }
-        });
-        jPanel3.add(lblClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 0, 20, -1));
-
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -200,6 +185,26 @@ public class ULogin extends javax.swing.JFrame {
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("Por favor iniciar sesion para continuar");
         jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 280, -1));
+
+        lblClose.setBackground(new java.awt.Color(0, 74, 173));
+        lblClose.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblClose.setForeground(new java.awt.Color(255, 255, 255));
+        lblClose.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblClose.setText("X");
+        lblClose.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lblClose.setOpaque(true);
+        lblClose.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblCloseMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblCloseMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblCloseMouseExited(evt);
+            }
+        });
+        jPanel3.add(lblClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(295, 0, 30, -1));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -236,12 +241,12 @@ public class ULogin extends javax.swing.JFrame {
     }//GEN-LAST:event_lblCloseMouseClicked
 
     private void lblCloseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCloseMouseEntered
-        lblClose.setBackground(Color.red);
+        lblClose.setBackground(Color.decode("#ff0000"));
         lblClose.setOpaque(true);
     }//GEN-LAST:event_lblCloseMouseEntered
 
     private void lblCloseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCloseMouseExited
-        lblClose.setOpaque(false);
+        lblClose.setBackground(new Color(0, 74, 173));
     }//GEN-LAST:event_lblCloseMouseExited
 
     private void btnLoginLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginLabelMouseEntered
@@ -256,7 +261,7 @@ public class ULogin extends javax.swing.JFrame {
 
     private void btnLoginLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginLabelMouseClicked
         // TODO add your handling code here:
-        db.loginCheck(txtUser.getText(), txtPassword.getText());
+        dm.loginUser(txtUser.getText(), txtPassword.getText());
     }//GEN-LAST:event_btnLoginLabelMouseClicked
 
     private void btnLoginLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginLabelMousePressed
@@ -278,7 +283,7 @@ public class ULogin extends javax.swing.JFrame {
     private void txtUserFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUserFocusLost
         // TODO add your handling code here:
         if ("".equals(txtUser.getText())) {
-            txtUser.setText("Usuario");
+            txtUser.setText("Correo Electronico");
         }
     }//GEN-LAST:event_txtUserFocusLost
 
