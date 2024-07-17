@@ -5,17 +5,24 @@
  */
 package com.raven.form;
 
-/**
- *
- * @author RAVEN
- */
-public class Form_1 extends javax.swing.JPanel {
+import com.global.UDM;
+import com.global.dbConnection;
 
-    /**
-     * Creates new form Form_1
-     */
+public class Form_1 extends javax.swing.JPanel {
+    
+    dbConnection db = new dbConnection();
+    UDM dm = new UDM();
+    
     public Form_1() {
         initComponents();
+        Object[] alumnos = db.getAlumnos();
+        for (Object alumno : alumnos) {
+            if (alumno == null) {
+                return;
+            }
+            tablaAlumnos.addRow((Object[]) alumno);
+        }
+        System.out.println(tablaAlumnos.getComponentCount());
     }
 
     /**
@@ -27,35 +34,500 @@ public class Form_1 extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        btnBuscarAlumno = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        buscadorAlumnos = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        panelBorder1 = new com.raven.swing.PanelBorder();
+        jLabel5 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablaAlumnos = new com.raven.swing.TableGeneral();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        txtUser = new javax.swing.JTextField();
+        txtUser1 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        txtUser2 = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        txtUser3 = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        txtUser4 = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        editarAlumnoBtn = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        guardarAlumnoBtn = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
+        jSeparator3 = new javax.swing.JSeparator();
+        jSeparator4 = new javax.swing.JSeparator();
+        jSeparator5 = new javax.swing.JSeparator();
+        jLabel13 = new javax.swing.JLabel();
+        txtUser5 = new javax.swing.JTextField();
+        jSeparator6 = new javax.swing.JSeparator();
+        jSeparator7 = new javax.swing.JSeparator();
+        agregarAlumnoBtn = new javax.swing.JPanel();
+        eliminarAlumnoBtn = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(242, 242, 242));
+        setPreferredSize(new java.awt.Dimension(915, 600));
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                formComponentShown(evt);
+            }
+        });
 
-        jLabel1.setFont(new java.awt.Font("sansserif", 0, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(106, 106, 106));
+        jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnBuscarAlumno.setBackground(new java.awt.Color(17, 119, 255));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Form 1");
+        jLabel1.setText("BUSCAR");
+
+        javax.swing.GroupLayout btnBuscarAlumnoLayout = new javax.swing.GroupLayout(btnBuscarAlumno);
+        btnBuscarAlumno.setLayout(btnBuscarAlumnoLayout);
+        btnBuscarAlumnoLayout.setHorizontalGroup(
+            btnBuscarAlumnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        btnBuscarAlumnoLayout.setVerticalGroup(
+            btnBuscarAlumnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(btnBuscarAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 70, 70, 36));
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
+        buscadorAlumnos.setForeground(new java.awt.Color(204, 204, 204));
+        buscadorAlumnos.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        buscadorAlumnos.setText("Buscar...");
+        buscadorAlumnos.setBorder(null);
+
+        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/search.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(buscadorAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, 732, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(buscadorAlumnos)
+            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 757, -1));
+
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(17, 119, 255));
+        jLabel2.setText("GESTIÓN DE ALUMNOS");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 831, 30));
+
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panelBorder1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel5.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(127, 127, 127));
+        jLabel5.setText("Alumnos");
+
+        tablaAlumnos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "C.I", "Apellidos", "Nombres", "Email", "Telefono"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tablaAlumnos);
+
+        javax.swing.GroupLayout panelBorder1Layout = new javax.swing.GroupLayout(panelBorder1);
+        panelBorder1.setLayout(panelBorder1Layout);
+        panelBorder1Layout.setHorizontalGroup(
+            panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelBorder1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(panelBorder1Layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addGap(0, 458, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        panelBorder1Layout.setVerticalGroup(
+            panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelBorder1Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(130, 130, 130))
+        );
+
+        jPanel3.add(panelBorder1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 370));
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 560, 390));
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(17, 119, 255), 2, true));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sources/icon prueba.png"))); // NOI18N
+        jPanel5.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 120));
+
+        jPanel4.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 100, 120));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(127, 127, 127));
+        jLabel4.setText("Apellidos");
+        jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
+
+        txtUser.setForeground(new java.awt.Color(255, 255, 255));
+        txtUser.setBorder(null);
+        txtUser.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtUserFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtUserFocusLost(evt);
+            }
+        });
+        jPanel4.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 110, 20));
+
+        txtUser1.setForeground(new java.awt.Color(255, 255, 255));
+        txtUser1.setBorder(null);
+        txtUser1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtUser1FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtUser1FocusLost(evt);
+            }
+        });
+        jPanel4.add(txtUser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 110, 20));
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(127, 127, 127));
+        jLabel7.setText("Nombres");
+        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, -1, -1));
+
+        txtUser2.setForeground(new java.awt.Color(255, 255, 255));
+        txtUser2.setBorder(null);
+        txtUser2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtUser2FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtUser2FocusLost(evt);
+            }
+        });
+        jPanel4.add(txtUser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 110, 20));
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(127, 127, 127));
+        jLabel8.setText("Fecha Nacimiento");
+        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 110, -1));
+
+        txtUser3.setForeground(new java.awt.Color(255, 255, 255));
+        txtUser3.setBorder(null);
+        txtUser3.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtUser3FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtUser3FocusLost(evt);
+            }
+        });
+        jPanel4.add(txtUser3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 230, 20));
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(127, 127, 127));
+        jLabel9.setText("Email");
+        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, -1));
+
+        txtUser4.setForeground(new java.awt.Color(255, 255, 255));
+        txtUser4.setBorder(null);
+        txtUser4.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtUser4FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtUser4FocusLost(evt);
+            }
+        });
+        jPanel4.add(txtUser4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 230, 20));
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(127, 127, 127));
+        jLabel10.setText("Telefono");
+        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, -1, -1));
+
+        editarAlumnoBtn.setBackground(new java.awt.Color(255, 255, 255));
+        editarAlumnoBtn.setForeground(new java.awt.Color(17, 119, 255));
+
+        jLabel11.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(17, 119, 255));
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("EDITAR");
+        jLabel11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(17, 119, 255)));
+
+        javax.swing.GroupLayout editarAlumnoBtnLayout = new javax.swing.GroupLayout(editarAlumnoBtn);
+        editarAlumnoBtn.setLayout(editarAlumnoBtnLayout);
+        editarAlumnoBtnLayout.setHorizontalGroup(
+            editarAlumnoBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+        );
+        editarAlumnoBtnLayout.setVerticalGroup(
+            editarAlumnoBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+        );
+
+        jPanel4.add(editarAlumnoBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, 100, 30));
+
+        guardarAlumnoBtn.setBackground(new java.awt.Color(17, 119, 255));
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setText("GUARDAR");
+
+        javax.swing.GroupLayout guardarAlumnoBtnLayout = new javax.swing.GroupLayout(guardarAlumnoBtn);
+        guardarAlumnoBtn.setLayout(guardarAlumnoBtnLayout);
+        guardarAlumnoBtnLayout.setHorizontalGroup(
+            guardarAlumnoBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+        );
+        guardarAlumnoBtnLayout.setVerticalGroup(
+            guardarAlumnoBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+        );
+
+        jPanel4.add(guardarAlumnoBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 400, 100, 30));
+
+        jSeparator1.setBackground(new java.awt.Color(17, 119, 255));
+        jSeparator1.setForeground(new java.awt.Color(17, 119, 255));
+        jSeparator1.setToolTipText("");
+        jPanel4.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 230, 10));
+
+        jSeparator2.setBackground(new java.awt.Color(17, 119, 255));
+        jSeparator2.setForeground(new java.awt.Color(17, 119, 255));
+        jSeparator2.setToolTipText("");
+        jPanel4.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 110, 10));
+
+        jSeparator3.setBackground(new java.awt.Color(17, 119, 255));
+        jSeparator3.setForeground(new java.awt.Color(17, 119, 255));
+        jSeparator3.setToolTipText("");
+        jPanel4.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 110, 10));
+
+        jSeparator4.setBackground(new java.awt.Color(17, 119, 255));
+        jSeparator4.setForeground(new java.awt.Color(17, 119, 255));
+        jSeparator4.setToolTipText("");
+        jPanel4.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 110, 10));
+
+        jSeparator5.setBackground(new java.awt.Color(17, 119, 255));
+        jSeparator5.setForeground(new java.awt.Color(17, 119, 255));
+        jSeparator5.setToolTipText("");
+        jPanel4.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 230, 10));
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(127, 127, 127));
+        jLabel13.setText("C.I");
+        jPanel4.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
+
+        txtUser5.setForeground(new java.awt.Color(255, 255, 255));
+        txtUser5.setBorder(null);
+        txtUser5.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtUser5FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtUser5FocusLost(evt);
+            }
+        });
+        jPanel4.add(txtUser5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 110, 20));
+
+        jSeparator6.setBackground(new java.awt.Color(17, 119, 255));
+        jSeparator6.setForeground(new java.awt.Color(17, 119, 255));
+        jSeparator6.setToolTipText("");
+        jPanel4.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 230, 10));
+
+        jSeparator7.setBackground(new java.awt.Color(17, 119, 255));
+        jSeparator7.setForeground(new java.awt.Color(17, 119, 255));
+        jSeparator7.setToolTipText("");
+        jPanel4.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 110, 10));
+
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 130, 270, 450));
+
+        agregarAlumnoBtn.setBackground(new java.awt.Color(17, 119, 255));
+
+        javax.swing.GroupLayout agregarAlumnoBtnLayout = new javax.swing.GroupLayout(agregarAlumnoBtn);
+        agregarAlumnoBtn.setLayout(agregarAlumnoBtnLayout);
+        agregarAlumnoBtnLayout.setHorizontalGroup(
+            agregarAlumnoBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 210, Short.MAX_VALUE)
+        );
+        agregarAlumnoBtnLayout.setVerticalGroup(
+            agregarAlumnoBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(agregarAlumnoBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 530, 210, 40));
+
+        eliminarAlumnoBtn.setBackground(new java.awt.Color(255, 0, 0));
+
+        javax.swing.GroupLayout eliminarAlumnoBtnLayout = new javax.swing.GroupLayout(eliminarAlumnoBtn);
+        eliminarAlumnoBtn.setLayout(eliminarAlumnoBtnLayout);
+        eliminarAlumnoBtnLayout.setHorizontalGroup(
+            eliminarAlumnoBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 150, Short.MAX_VALUE)
+        );
+        eliminarAlumnoBtnLayout.setVerticalGroup(
+            eliminarAlumnoBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(eliminarAlumnoBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 530, 150, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 479, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(128, 128, 128)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
-                .addGap(125, 125, 125))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtUserFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUserFocusGained
+        // TODO add your handling code here:
+        txtUser.setText("");
+    }//GEN-LAST:event_txtUserFocusGained
+
+    private void txtUserFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUserFocusLost
+        // TODO add your handling code here:
+        if ("".equals(txtUser.getText())) {
+            txtUser.setText("Correo Electronico");
+        }
+    }//GEN-LAST:event_txtUserFocusLost
+
+    private void txtUser1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUser1FocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUser1FocusGained
+
+    private void txtUser1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUser1FocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUser1FocusLost
+
+    private void txtUser2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUser2FocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUser2FocusGained
+
+    private void txtUser2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUser2FocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUser2FocusLost
+
+    private void txtUser3FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUser3FocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUser3FocusGained
+
+    private void txtUser3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUser3FocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUser3FocusLost
+
+    private void txtUser4FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUser4FocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUser4FocusGained
+
+    private void txtUser4FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUser4FocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUser4FocusLost
+
+    private void txtUser5FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUser5FocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUser5FocusGained
+
+    private void txtUser5FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUser5FocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUser5FocusLost
+
+    private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formComponentShown
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel agregarAlumnoBtn;
+    private javax.swing.JPanel btnBuscarAlumno;
+    private javax.swing.JTextField buscadorAlumnos;
+    private javax.swing.JPanel editarAlumnoBtn;
+    private javax.swing.JPanel eliminarAlumnoBtn;
+    private javax.swing.JPanel guardarAlumnoBtn;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JSeparator jSeparator7;
+    private com.raven.swing.PanelBorder panelBorder1;
+    private com.raven.swing.TableGeneral tablaAlumnos;
+    private javax.swing.JTextField txtUser;
+    private javax.swing.JTextField txtUser1;
+    private javax.swing.JTextField txtUser2;
+    private javax.swing.JTextField txtUser3;
+    private javax.swing.JTextField txtUser4;
+    private javax.swing.JTextField txtUser5;
     // End of variables declaration//GEN-END:variables
 }

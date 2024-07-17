@@ -5,14 +5,19 @@
  */
 package com.global;
 
+import com.raven.form.Form_1;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -39,6 +44,24 @@ public class dbConnection {
             JOptionPane.showMessageDialog(null, "No se ha agregado la libreria correspondiente");
             System.exit(0);
         }
+    }
+
+    public Object[] getAlumnos() {
+        Statement stmt;
+        int index = 0;
+        Object[] objRows = new Object[50];
+        try {
+            stmt = connect.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM Alumnos");
+            while (rs.next()) {
+                objRows[index] = new Object[]{rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6)};
+                index++;
+            }
+            return objRows;
+        } catch (SQLException ex) {
+            Logger.getLogger(dbConnection.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
 
     public int loginCheck(String username, String password) {
@@ -72,4 +95,5 @@ public class dbConnection {
         Matcher matcher = pattern.matcher(email);
         return matcher.matches();
     }
+
 }
