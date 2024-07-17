@@ -72,8 +72,11 @@ public class Form_1 extends javax.swing.JPanel {
         txtUser5 = new javax.swing.JTextField();
         jSeparator6 = new javax.swing.JSeparator();
         jSeparator7 = new javax.swing.JSeparator();
+        jLabel14 = new javax.swing.JLabel();
         agregarAlumnoBtn = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
         eliminarAlumnoBtn = new javax.swing.JPanel();
+        jLabel16 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(242, 242, 242));
         setPreferredSize(new java.awt.Dimension(915, 600));
@@ -193,16 +196,14 @@ public class Form_1 extends javax.swing.JPanel {
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 560, 390));
 
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(17, 119, 255), 2, true));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/sources/icon prueba.png"))); // NOI18N
-        jPanel5.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 120));
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sources/foto prueba alumno.png"))); // NOI18N
+        jPanel5.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 110));
 
-        jPanel4.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 100, 120));
+        jPanel4.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 90, 110));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(127, 127, 127));
@@ -310,7 +311,7 @@ public class Form_1 extends javax.swing.JPanel {
             .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        jPanel4.add(editarAlumnoBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, 100, 30));
+        jPanel4.add(editarAlumnoBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 100, 30));
 
         guardarAlumnoBtn.setBackground(new java.awt.Color(17, 119, 255));
 
@@ -330,7 +331,7 @@ public class Form_1 extends javax.swing.JPanel {
             .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        jPanel4.add(guardarAlumnoBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 400, 100, 30));
+        jPanel4.add(guardarAlumnoBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 390, 100, 30));
 
         jSeparator1.setBackground(new java.awt.Color(17, 119, 255));
         jSeparator1.setForeground(new java.awt.Color(17, 119, 255));
@@ -384,37 +385,50 @@ public class Form_1 extends javax.swing.JPanel {
         jSeparator7.setToolTipText("");
         jPanel4.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 110, 10));
 
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sources/Formulario background Jpanel Blanco.png"))); // NOI18N
+        jPanel4.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 260, 450));
+
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 130, 270, 450));
 
         agregarAlumnoBtn.setBackground(new java.awt.Color(17, 119, 255));
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel15.setText("AÑADIR");
 
         javax.swing.GroupLayout agregarAlumnoBtnLayout = new javax.swing.GroupLayout(agregarAlumnoBtn);
         agregarAlumnoBtn.setLayout(agregarAlumnoBtnLayout);
         agregarAlumnoBtnLayout.setHorizontalGroup(
             agregarAlumnoBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 210, Short.MAX_VALUE)
+            .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
         );
         agregarAlumnoBtnLayout.setVerticalGroup(
             agregarAlumnoBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
+            .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
-        jPanel1.add(agregarAlumnoBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 530, 210, 40));
+        jPanel1.add(agregarAlumnoBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 520, 210, 40));
 
         eliminarAlumnoBtn.setBackground(new java.awt.Color(255, 0, 0));
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel16.setText("ELIMINAR");
 
         javax.swing.GroupLayout eliminarAlumnoBtnLayout = new javax.swing.GroupLayout(eliminarAlumnoBtn);
         eliminarAlumnoBtn.setLayout(eliminarAlumnoBtnLayout);
         eliminarAlumnoBtnLayout.setHorizontalGroup(
             eliminarAlumnoBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 150, Short.MAX_VALUE)
+            .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
         );
         eliminarAlumnoBtnLayout.setVerticalGroup(
             eliminarAlumnoBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
+            .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
-        jPanel1.add(eliminarAlumnoBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 530, 150, 40));
+        jPanel1.add(eliminarAlumnoBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 520, 150, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -500,6 +514,9 @@ public class Form_1 extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
