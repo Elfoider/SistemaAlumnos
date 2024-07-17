@@ -65,4 +65,18 @@ public class dbConnection {
             JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
+
+    public void getAlumnos() {
+        Object[] objAlumnos;
+        try {
+            Statement stmt = connect.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM Alumnos");
+
+            while (rs.next()) {
+                System.out.println(rs.getString("Nombres"));
+            }
+        } catch (SQLException e) {
+        }
+    }
+
 }

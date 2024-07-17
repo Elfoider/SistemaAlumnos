@@ -5,6 +5,7 @@
  */
 package Forms;
 
+import com.global.UDM;
 import com.raven.event.EventMenuSelected;
 import com.raven.form.Form_1;
 import com.raven.form.Form_2;
@@ -26,27 +27,34 @@ public class UMain extends javax.swing.JFrame {
     private Form_1 form1;
     private Form_2 form2;
     private Form_3 form3;
+    private UDM dm = new UDM();
 
     public UMain() {
         initComponents();
         setBackground(new Color(0, 0, 0, 0));
         home = new Form_Home();
-        form1 = new Form_1();
-        form2 = new Form_2();
-        form3 = new Form_3();
+
         menu.initMoving(UMain.this);
-        menu.addEventMenuSelected(new EventMenuSelected() {
-            @Override
-            public void selected(int index) {
-                if (index == 0) {
+        menu.addEventMenuSelected((int index) -> {
+            switch (index) {
+                case 0:
+                    
                     setForm(home);
-                } else if (index == 1) {
+                    break;
+                case 1:
+                    form1 = new Form_1();
                     setForm(form1);
-                } else if (index == 2) {
+                    break;
+                case 2:
+                    form2 = new Form_2();
                     setForm(form2);
-                } else if (index == 3) {
+                    break;
+                case 3:
+                    form3 = new Form_3();
                     setForm(form3);
-                }
+                    break;
+                default:
+                    break;
             }
         });
         //  set when system open start with home form

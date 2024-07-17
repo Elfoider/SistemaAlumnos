@@ -10,9 +10,6 @@ import Forms.UMain;
 import Forms.USplash;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
-import java.util.regex.Pattern;
-import java.util.regex.Matcher;
-
 /**
  *
  * @author jl54n
@@ -47,19 +44,22 @@ public class UDM {
     public void loginUser(String username, String password) {
         int loginResult = db.loginCheck(username, password);
 
-        if (loginResult == 1) {
-            loginForm.setVisible(false);
-            splashScreen.setVisible(true);
-            mTimer = new Timer(5000, e -> {
-                splashScreen.dispose();
-                mainForm.setVisible(true);
-                mTimer.stop();
-            });
-            mTimer.start();
-        } else if (loginResult == 2) {
-            JOptionPane.showMessageDialog(null, "Error correo electronico no valido");
-        } else {
-            JOptionPane.showMessageDialog(null, "Combinacion de usuario y contraseña no valido");
+        switch (loginResult) {
+            case 1:
+                loginForm.setVisible(false);
+                splashScreen.setVisible(true);
+                mTimer = new Timer(5000, e -> {
+                    splashScreen.dispose();
+                    mainForm.setVisible(true);
+                    mTimer.stop();
+                }); mTimer.start();
+                break;
+            case 2:
+                JOptionPane.showMessageDialog(null, "Error correo electronico no valido");
+                break;
+            default:
+                JOptionPane.showMessageDialog(null, "Combinacion de usuario y contraseña no valido");
+                break;
         }
     }
 }

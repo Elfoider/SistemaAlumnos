@@ -9,6 +9,9 @@
       <Dimension value="[915, 600]"/>
     </Property>
   </Properties>
+  <Events>
+    <EventHandler event="componentShown" listener="java.awt.event.ComponentListener" parameters="java.awt.event.ComponentEvent" handler="formComponentShown"/>
+  </Events>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -188,13 +191,13 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="spTable" pref="540" max="32767" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
+                              <Component id="jScrollPane1" max="32767" attributes="0"/>
+                              <Group type="102" attributes="0">
                                   <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="458" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -206,9 +209,9 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="spTable" min="-2" pref="307" max="-2" attributes="0"/>
-                          <EmptySpace pref="13" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="jScrollPane1" min="-2" pref="308" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="130" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -225,24 +228,59 @@
                     <Property name="text" type="java.lang.String" value="Alumnos"/>
                   </Properties>
                 </Component>
-                <Container class="javax.swing.JScrollPane" name="spTable">
-                  <Properties>
-                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="null"/>
-                    </Property>
-                  </Properties>
+                <Container class="javax.swing.JScrollPane" name="jScrollPane1">
                   <AuxValues>
                     <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                   </AuxValues>
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="com.raven.swing.Table" name="tablaAlumnos">
+                    <Component class="com.raven.swing.TableGeneral" name="tablaAlumnos">
                       <Properties>
-                        <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                          <Connection code="new javax.swing.table.DefaultTableModel(&#xa;    new Object [][] {&#xa;&#xa;    },&#xa;    new String [] {&#xa;        &quot;ID&quot;,&quot;Apellidos&quot;,&quot;Nombres&quot;,&quot;C.I&quot;,&quot;Tel&#xe9;fono&quot;,&quot;Email&quot;&#xa;    }&#xa;) {&#xa;    boolean[] canEdit = new boolean [] {&#xa;        false, false, false, false, false&#xa;    };&#xa;&#xa;    public boolean isCellEditable(int rowIndex, int columnIndex) {&#xa;        return canEdit [columnIndex];&#xa;    }&#xa;}" type="code"/>
+                        <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                          <Table columnCount="6" rowCount="0">
+                            <Column editable="false" title="ID" type="java.lang.Object"/>
+                            <Column editable="false" title="C.I" type="java.lang.Object"/>
+                            <Column editable="false" title="Apellidos" type="java.lang.Object"/>
+                            <Column editable="false" title="Nombres" type="java.lang.Object"/>
+                            <Column editable="true" title="Email" type="java.lang.Object"/>
+                            <Column editable="true" title="Telefono" type="java.lang.Object"/>
+                          </Table>
                         </Property>
-                        <Property name="autoscrolls" type="boolean" value="false"/>
+                        <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                          <TableColumnModel selectionModel="0">
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                          </TableColumnModel>
+                        </Property>
                         <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                           <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                         </Property>
@@ -255,21 +293,9 @@
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel4">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                <LineBorder roundedCorners="true" thickness="2">
-                  <Color PropertyName="color" blue="ff" green="77" red="11" type="rgb"/>
-                </LineBorder>
-              </Border>
-            </Property>
-          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="610" y="130" width="270" height="450"/>
+              <AbsoluteConstraints x="620" y="130" width="270" height="450"/>
             </Constraint>
           </Constraints>
 
@@ -280,7 +306,7 @@
             <Container class="javax.swing.JPanel" name="jPanel5">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="80" y="10" width="100" height="120"/>
+                  <AbsoluteConstraints x="90" y="20" width="90" height="110"/>
                 </Constraint>
               </Constraints>
 
@@ -291,12 +317,12 @@
                 <Component class="javax.swing.JLabel" name="jLabel6">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/com/sources/icon prueba.png"/>
+                      <Image iconType="3" name="/sources/foto prueba alumno.png"/>
                     </Property>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="-100" y="-10" width="210" height="190"/>
+                      <AbsoluteConstraints x="0" y="0" width="90" height="110"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -488,7 +514,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="30" y="400" width="100" height="30"/>
+                  <AbsoluteConstraints x="30" y="390" width="100" height="30"/>
                 </Constraint>
               </Constraints>
 
@@ -537,7 +563,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="140" y="400" width="100" height="30"/>
+                  <AbsoluteConstraints x="140" y="390" width="100" height="30"/>
                 </Constraint>
               </Constraints>
 
@@ -715,6 +741,18 @@
                 </Constraint>
               </Constraints>
             </Component>
+            <Component class="javax.swing.JLabel" name="jLabel14">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/sources/Formulario background Jpanel Blanco.png"/>
+                </Property>
+              </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="10" y="0" width="260" height="450"/>
+                </Constraint>
+              </Constraints>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="agregarAlumnoBtn">
@@ -725,22 +763,36 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="40" y="530" width="210" height="40"/>
+              <AbsoluteConstraints x="30" y="520" width="210" height="40"/>
             </Constraint>
           </Constraints>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="210" max="32767" attributes="0"/>
+                  <Component id="jLabel15" alignment="1" pref="210" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="40" max="32767" attributes="0"/>
+                  <Component id="jLabel15" alignment="0" pref="40" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="jLabel15">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="12" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="A&#xd1;ADIR"/>
+              </Properties>
+            </Component>
+          </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="eliminarAlumnoBtn">
           <Properties>
@@ -750,22 +802,36 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="270" y="530" width="150" height="40"/>
+              <AbsoluteConstraints x="260" y="520" width="150" height="40"/>
             </Constraint>
           </Constraints>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="150" max="32767" attributes="0"/>
+                  <Component id="jLabel16" alignment="1" pref="150" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="40" max="32767" attributes="0"/>
+                  <Component id="jLabel16" alignment="0" pref="40" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="jLabel16">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="12" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="ELIMINAR"/>
+              </Properties>
+            </Component>
+          </SubComponents>
         </Container>
       </SubComponents>
     </Container>

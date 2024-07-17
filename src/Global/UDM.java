@@ -6,6 +6,7 @@
 package Global;
 
 import Forms.ULogin;
+import com.raven.form.Form_1;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,6 +16,7 @@ import javax.swing.JOptionPane;
 public class UDM {
 
     static dbConnection db;
+    public int flag = 1;
 
     public UDM() {
         db = new dbConnection();

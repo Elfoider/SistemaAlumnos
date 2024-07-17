@@ -128,7 +128,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="7f" green="7f" red="7f" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Standard Table Design"/>
+            <Property name="text" type="java.lang.String" value="Vision general de alumnos"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JScrollPane" name="spTable">
