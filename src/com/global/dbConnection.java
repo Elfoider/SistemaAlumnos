@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.global;
 
 import com.raven.form.Form_1;
@@ -39,8 +34,7 @@ public class dbConnection {
             System.err.println("No se ha podido conectar a la base de datos\n" + ex.getMessage());
             JOptionPane.showMessageDialog(null, "No se ha podido conectar a la base de datos\n" + ex.getMessage());
         } catch (ClassNotFoundException e) {
-            System.err.println("El JAR no está correctamente agregado\n"
-                    + e.getMessage());
+            System.err.println("El JAR no está correctamente agregado\n" + e.getMessage());
             JOptionPane.showMessageDialog(null, "No se ha agregado la libreria correspondiente");
             System.exit(0);
         }
@@ -73,9 +67,19 @@ public class dbConnection {
                 ResultSet rs = stmt.executeQuery("SELECT * FROM users");
                 while (rs.next()) {
                     String dbusername = rs.getString("username"), dbpassword = rs.getString("password");
+                    int role = rs.getInt("role"); // Retrieve the 'rol' attribute
+
                     if (username.equals(dbusername) && password.equals(dbpassword)) {
-                        System.out.println("logueado");
-                        loginUser = 1;
+                        System.out.println("Logueado");
+                        if (role == 0) {
+                            loginUser = 1; // Administrator login
+                        } else if (role == 1) {
+                            loginUser = 1; // Student login
+                        } else {
+                            // Handle unexpected role values (optional)
+                            JOptionPane.showMessageDialog(null, "Rol no reconocido en la base de datos");
+                            loginUser = 2; // Indicate invalid login
+                        }
                         break;
                     }
                 }
@@ -84,7 +88,7 @@ public class dbConnection {
                 loginUser = 0;
             }
         } else {
-            loginUser = 2;
+            loginUser = 2; // Invalid email format
         }
         return loginUser;
     }
@@ -95,5 +99,4 @@ public class dbConnection {
         Matcher matcher = pattern.matcher(email);
         return matcher.matches();
     }
-
 }
