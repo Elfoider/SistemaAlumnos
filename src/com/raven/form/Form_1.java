@@ -210,7 +210,6 @@ public class Form_1 extends javax.swing.JPanel {
         jLabel4.setText("Apellidos");
         jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
 
-        txtUser.setForeground(new java.awt.Color(255, 255, 255));
         txtUser.setBorder(null);
         txtUser.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -222,7 +221,6 @@ public class Form_1 extends javax.swing.JPanel {
         });
         jPanel4.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 110, 20));
 
-        txtUser1.setForeground(new java.awt.Color(255, 255, 255));
         txtUser1.setBorder(null);
         txtUser1.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -239,7 +237,6 @@ public class Form_1 extends javax.swing.JPanel {
         jLabel7.setText("Nombres");
         jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, -1, -1));
 
-        txtUser2.setForeground(new java.awt.Color(255, 255, 255));
         txtUser2.setBorder(null);
         txtUser2.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -256,7 +253,6 @@ public class Form_1 extends javax.swing.JPanel {
         jLabel8.setText("Fecha Nacimiento");
         jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 110, -1));
 
-        txtUser3.setForeground(new java.awt.Color(255, 255, 255));
         txtUser3.setBorder(null);
         txtUser3.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -273,7 +269,6 @@ public class Form_1 extends javax.swing.JPanel {
         jLabel9.setText("Email");
         jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, -1));
 
-        txtUser4.setForeground(new java.awt.Color(255, 255, 255));
         txtUser4.setBorder(null);
         txtUser4.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -363,7 +358,6 @@ public class Form_1 extends javax.swing.JPanel {
         jLabel13.setText("C.I");
         jPanel4.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
 
-        txtUser5.setForeground(new java.awt.Color(255, 255, 255));
         txtUser5.setBorder(null);
         txtUser5.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -438,10 +432,7 @@ public class Form_1 extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
